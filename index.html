@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ehab El Mahalawy | Senior Civil Engineer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0a0a0a;
+            --secondary: #1a1a1a;
+            --accent: #c9a961;
+            --white: #ffffff;
+            --gray: #6b7280;
+            --light-gray: #f8f9fa;
+            --border: #e5e7eb;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--primary);
+            background: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(201, 169, 97, 0.03) 10px,
+                rgba(201, 169, 97, 0.03) 20px
+            );
+            animation: slide 20s linear infinite;
+        }
+
+        @keyframes slide {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        .hero-content {
+            text-align: center;
+            color: var(--white);
+            z-index: 1;
+            max-width: 900px;
+            padding: 0 2rem;
+        }
+
+        .hero-title {
+            font-size: 5rem;
+            font-weight: 800;
+            letter-spacing: -2px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            line-height: 1;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            letter-spacing: 3px;
+            color: var(--accent);
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: rgba(255,255,255,0.8);
+            max-width: 600px;
+            margin: 0 auto 3rem;
+        }
+
+        .hero-cta {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background: var(--accent);
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s;
+            border: 2px solid var(--accent);
+        }
+
+        .hero-cta:hover {
+            background: transparent;
+            color: var(--accent);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--accent);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translate(-50%, 0); }
+            50% { transform: translate(-50%, 10px); }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(201, 169, 97, 0.2);
+            transform: translateY(-100%);
+            transition: transform 0.3s;
+        }
+
+        nav.visible {
+            transform: translateY(0);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--white);
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Section Base */
+        section {
+            padding: 8rem 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            margin-bottom: 5rem;
+        }
+
+        .section-label {
+            font-size: 0.9rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            line-height: 1.1;
+        }
+
+        /* About Section */
+        #about {
+            background: var(--light-gray);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-item {
+            border-left: 3px solid var(--accent);
+            padding-left: 1.5rem;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--gray);
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--white);
+            border: 1px solid var(--border);
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--accent);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .contact-info a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-label {
+            font-size: 0.8rem;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Experience Section */
+        .timeline {
+            position: relative;
+            padding-left: 3rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 4rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -3.5rem;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            background: var(--accent);
+            border: 3px solid var(--white);
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px var(--light-gray);
+        }
+
+        .timeline-date {
+            font-size: 0.85rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-position {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .timeline-company {
+            font-size: 1.1rem;
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .timeline-description {
+            color: var(--gray);
+            line-height: 1.8;
+        }
+
+        .timeline-description ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .timeline-description li {
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-description li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* Skills Section */
+        #skills {
+            background: var(--light-gray);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+        }
+
+        .skill-category {
+            background: var(--white);
+            padding: 2.5rem;
+            border: 1px solid var(--border);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .skill-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-category h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 0.7rem 0;
+            border-bottom: 1px solid var(--border);
+            color: var(--gray);
+            font-weight: 500;
+        }
+
+        .skill-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* Certifications Section */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .cert-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .cert-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--accent);
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+
+        .cert-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .cert-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .cert-card:hover .cert-overlay {
+            opacity: 1;
+        }
+
+        .cert-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .cert-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.7) 100%);
+            padding: 2rem;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .cert-card:hover .cert-info {
+            transform: translateY(0);
+        }
+
+        .cert-info {
+            transform: translateY(20px);
+            transition: transform 0.3s;
+        }
+
+        .cert-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--white);
+        }
+
+        .cert-card p {
+            font-size: 0.9rem;
+            color: var(--accent);
+        }
+
+        .cert-details {
+            padding: 1.5rem;
+            background: var(--white);
+        }
+
+        .cert-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .cert-issuer {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        /* Lightbox Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+        }
+
+        .modal-image {
+            max-width: 100%;
+            max-height: 90vh;
+            object-fit: contain;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: var(--white);
+            font-size: 2rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .modal-close:hover {
+            color: var(--accent);
+        }
+
+        /* Education Section */
+        #education {
+            background: var(--light-gray);
+        }
+
+        .education-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-left: 5px solid var(--accent);
+            padding: 3rem;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .education-year {
+            font-size: 4rem;
+            font-weight: 800;
+            color: var(--accent);
+            line-height: 1;
+        }
+
+        .education-degree {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-school {
+            font-size: 1.2rem;
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+
+        .education-details {
+            display: flex;
+            gap: 2rem;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        .education-details span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--primary);
+            color: var(--white);
+            text-align: center;
+            padding: 8rem 3rem;
+        }
+
+        .cta-section h2 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 3rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+        }
+
+        .btn-primary,
+        .btn-secondary {
+            padding: 1.2rem 3rem;
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s;
+            display: inline-block;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--primary);
+            border: 2px solid var(--accent);
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--accent);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary);
+            color: var(--white);
+            padding: 3rem;
+            text-align: center;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .footer-social a {
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.1);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+
+        .footer-social a:hover {
+            background: var(--accent);
+            color: var(--primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .hero-title { font-size: 4rem; }
+            .section-title { font-size: 2.5rem; }
+            .skills-grid { grid-template-columns: repeat(2, 1fr); }
+            .cert-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2.5rem; }
+            .hero-subtitle { font-size: 1rem; }
+            .about-grid { grid-template-columns: 1fr; }
+            .skills-grid { grid-template-columns: 1fr; }
+            .cert-grid { grid-template-columns: repeat(2, 1fr); }
+            .education-card { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+            section { padding: 4rem 1.5rem; }
+            .contact-grid { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: 1fr; }
+            .cta-buttons { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">EHAB EL MAHALAWY</h1>
+            <p class="hero-subtitle">Senior Technical Office Engineer</p>
+            <p class="hero-description">6+ Years of Excellence in Civil Engineering | Structural Design | Project Management | Based in Riyadh, Saudi Arabia</p>
+            <a href="#about" class="hero-cta">Explore Portfolio</a>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down fa-2x"></i>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">EEM</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="section-header">
+            <div class="section-label">About Me</div>
+            <h2 class="section-title">Building Excellence<br>Through Engineering</h2>
+        </div>
+        <div class="about-grid">
+            <div class="about-text">
+                <p>Dedicated Structural Civil Engineer with comprehensive experience in execution and full technical office operations across Egypt and Saudi Arabia. Specialized in quantity surveying, structural design, and project cost management.</p>
+                <p>Expert in AutoCAD, Revit, and advanced project management methodologies. Proven track record in delivering large-scale infrastructure projects including hospitals, government facilities, and commercial developments.</p>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number">6+</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Projects Completed</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">4</div>
+                        <div class="stat-label">Countries Worked</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">12+</div>
+                        <div class="stat-label">Certifications</div>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                    <div class="contact-info">
+                        <div class="contact-label">Phone</div>
+                        <a href="tel:+966537489173">+966 537489173</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                    <div class="contact-info">
+                        <div class="contact-label">Email</div>
+                        <a href="mailto:ehabsayedahmed2@gmail.com">ehabsayedahmed2@gmail.com</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <div class="contact-info">
+                        <div class="contact-label">Location</div>
+                        <span>Riyadh, Saudi Arabia</span>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fab fa-linkedin"></i></div>
+                    <div class="contact-info">
+                        <div class="contact-label">LinkedIn</div>
+                        <a href="https://www.linkedin.com/in/eng-ehab-el-mahalawy-903192262/" target="_blank">Connect</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="section-header">
+            <div class="section-label">Career Journey</div>
+            <h2 class="section-title">Professional Experience</h2>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-date">Oct 2024 - Present</div>
+                <h3 class="timeline-position">Technical Office Engineer (Head)</h3>
+                <div class="timeline-company">BENAA ALAZM COMPANY • Riyadh, Saudi Arabia</div>
+                <div class="timeline-description">
+                    Leading technical office operations for major construction projects in Riyadh.
+                    <ul>
+                        <li>Prepared comprehensive contracts for owners, contractors, and subcontractors</li>
+                        <li>Conducted quantity surveying and developed BOQ for multiple project types</li>
+                        <li>Managed cost estimation, budgeting, and profit margin monitoring</li>
+                        <li>Created shop drawings and coordinated execution teams</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">Nov 2023 - Sep 2024</div>
+                <h3 class="timeline-position">Technical Office Engineer (On Site)</h3>
+                <div class="timeline-company">DELTA URBAN DEVELOPMENT • Nasr City, Egypt</div>
+                <div class="timeline-description">
+                    Key contributor to New Ashmoun Public Hospital (300-bed capacity) project.
+                    <ul>
+                        <li>Conducted quantity surveying with consultant approvals</li>
+                        <li>Prepared variation memos and price analysis</li>
+                        <li>Created structural shop drawings and execution plans</li>
+                        <li>Managed subcontractor quantities and cost control</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">Jan 2022 - Jun 2023</div>
+                <h3 class="timeline-position">Technical Office & Design Engineer (Head)</h3>
+                <div class="timeline-company">TATWEER DEVELOPMENT • Tanta, Egypt</div>
+                <div class="timeline-description">
+                    Led structural design and technical office operations.
+                    <ul>
+                        <li>Designed structural systems and calculated loads</li>
+                        <li>Prepared shop drawings and contractual documents</li>
+                        <li>Supervised construction phases for concrete and finishing</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">Jun 2020 - Sep 2021</div>
+                <h3 class="timeline-position">Site Engineer</h3>
+                <div class="timeline-company">MOHAMED ABDEL HAKEEM COMPANY • Cairo, Egypt</div>
+                <div class="timeline-description">
+                    Supervised construction of government facilities (75,600 m²).
+                    <ul>
+                        <li>Ensured structural integrity of rehabilitation facilities</li>
+                        <li>Provided progress reports to senior management</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="section-header">
+            <div class="section-label">Expertise</div>
+            <h2 class="section-title">Core Competencies</h2>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <div class="skill-icon"><i class="fas fa-drafting-compass"></i></div>
+                <h3>Technical Skills</h3>
+                <ul class="skill-list">
+                    <li>Structural Design & Analysis</li>
+                    <li>Quantity Surveying</li>
+                    <li>Cost Estimation & Control</li>
+                    <li>Shop Drawing Preparation</li>
+                    <li>Construction Supervision</li>
+                    <li>Project Scheduling</li>
+                </ul>
+            </div>
+
+            <div class="skill-category">
+                <div class="skill-icon"><i class="fas fa-laptop-code"></i></div>
+                <h3>Software Proficiency</h3>
+                <ul class="skill-list">
+                    <li>AutoCAD Professional</li>
+                    <li>Revit Structural</li>
+                    <li>Microsoft Office Suite</li>
+                    <li>Power BI Analytics</li>
+                    <li>Excel Advanced</li>
+                    <li>Project Management Tools</li>
+                </ul>
+            </div>
+
+            <div class="skill-category">
+                <div class="skill-icon"><i class="fas fa-tasks"></i></div>
+                <h3>Project Management</h3>
+                <ul class="skill-list">
+                    <li>Budget Planning & Control</li>
+                    <li>Contract Management</li>
+                    <li>Team Coordination</li>
+                    <li>Risk Assessment</li>
+                    <li>Quality Assurance</li>
+                    <li>Stakeholder Management</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <div class="section-header">
+            <div class="section-label">Academic Background</div>
+            <h2 class="section-title">Education</h2>
+        </div>
+        <div class="education-card">
+            <div class="education-year">2018</div>
+            <div>
+                <h3 class="education-degree">Bachelor's Degree in Civil Engineering</h3>
+                <p class="education-school">Tanta University, Egypt</p>
+                <div class="education-details">
+                    <span><i class="fas fa-star"></i> Grade: Very Good</span>
+                    <span><i class="fas fa-trophy"></i> Graduation Project: Excellent</span>
+                    <span><i class="fas fa-anchor"></i> Harbor Design Specialization</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications">
+        <div class="section-header">
+            <div class="section-label">Credentials</div>
+            <h2 class="section-title">Certifications & Training</h2>
+        </div>
+        <div class="cert-grid">
+            <!-- SCE Registration Certificate -->
+            <div class="cert-card" onclick="openModal(this)">
+                <img src="images/sce-registration.jpg" alt="SCE Registration" class="cert-image">
+                <div class="cert-overlay">
+                    <div class="cert-info">
+                        <h3>SCE Registration</h3>
+                        <p>Saudi Council of Engineers - Click to view</p>
+                    </div>
+                </div>
+                <div class="cert-details">
+                    <div class="cert-title">Saudi Council of Engineers</div>
+                    <div class="cert-issuer">Civil Engineering Specialization • 2024</div>
+                </div>
+            </div>
+
+            <!-- Degree Certificate -->
+            <div class="cert-card" onclick="openModal(this)">
+                <img src="images/degree-certificate.jpg" alt="Bachelor's Degree" class="cert-image">
+                <div class="cert-overlay">
+                    <div class="cert-info">
+                        <h3>Bachelor's Degree</h3>
+                        <p>Tanta University - Click to view</p>
+                    </div>
+                </div>
+                <div class="cert-details">
+                    <div class="cert-title">Bachelor in Civil Engineering</div>
+                    <div class="cert-issuer">Tanta University • 2018 • Very Good</div>
+                </div>
+            </div>
+
+            <!-- Degree Verification -->
+            <div class="cert-card" onclick="openModal(this)">
+                <img src="images/degree-verification.jpg" alt="Degree Verification" class="cert-image">
+                <div class="cert-overlay">
+                    <div class="cert-info">
+                        <h3>Degree Verification</h3>
+                        <p>Mosadaqa Authentication - Click to view</p>
+                    </div>
+                </div>
+                <div class="cert-details">
+                    <div class="cert-title">Official Degree Verification</div>
+                    <div class="cert-issuer">Mosadaqa Platform • Authenticated</div>
+                </div>
+            </div>
+
+            <!-- Egyptian Engineers Syndicate -->
+            <div class="cert-card" onclick="openModal(this)">
+                <img src="images/egyptian-syndicate.jpg" alt="Egyptian Engineers Syndicate" class="cert-image">
+                <div class="cert-overlay">
+                    <div class="cert-info">
+                        <h3>Engineers Syndicate</h3>
+                        <p>Egyptian Registration - Click to view</p>
+                    </div>
+                </div>
+                <div class="cert-details">
+                    <div class="cert-title">Egyptian Engineers Syndicate</div>
+                    <div class="cert-issuer">Certified Civil Engineer • 2020</div>
+                </div>
+            </div>
+
+            <!-- Military Service Certificate -->
+            <div class="cert-card" onclick="openModal(this)">
+                <img src="images/military-service.jpg" alt="Military Service" class="cert-image">
+                <div class="cert-overlay">
+                    <div class="cert-info">
+                        <h3>Military Service</h3>
+                        <p>Egyptian Armed Forces - Click to view</p>
+                    </div>
+                </div>
+                <div class="cert-details">
+                    <div class="cert-title">Military Service Completion</div>
+                    <div class="cert-issuer">Egyptian Armed Forces • 2020-2021</div>
+                </div>
+            </div>
+
+            <!-- AutoCAD Certificate -->
+            <div class="cert-card" onclick="openModal(this)">
+                <img src="images/autocad-certificate.jpg" alt="AutoCAD 2D" class="cert-image">
+                <div class="cert-overlay">
+                    <div class="cert-info">
+                        <h3>AutoCAD Professional</h3>
+                        <p>2D Design Course - Click to view</p>
+                    </div>
+                </div>
+                <div class="cert-details">
+                    <div class="cert-title">AutoCAD 2D Comprehensive</div>
+                    <div class="cert-issuer">Delta Learn • Excellent Grade</div>
+                </div>
+            </div>
+
+            <!-- Work Experience Certificate 1 -->
+            <div class="cert-card" onclick="openModal(this)">
+                <img src="images/work-exp-1.jpg" alt="Work Experience" class="cert-image">
+                <div class="cert-overlay">
+                    <div class="cert-info">
+                        <h3>Work Experience</h3>
+                        <p>Mohamed Abdel Hakeem Co. - Click to view</p>
+                    </div>
+                </div>
+                <div class="cert-details">
+                    <div class="cert-title">Experience Certificate</div>
+                    <div class="cert-issuer">Mohamed Abdel Hakeem Company • 2020-2021</div>
+                </div>
+            </div>
+
+            <!-- Work Experience Certificate 2 -->
+            <div class="cert-card" onclick="openModal(this)">
+                <img src="images/work-exp-2.jpg" alt="Work Experience" class="cert-image">
+                <div class="cert-overlay">
+                    <div class="cert-info">
+                        <h3>Work Experience</h3>
+                        <p>Tatweer Development - Click to view</p>
+                    </div>
+                </div>
+                <div class="cert-details">
+                    <div class="cert-title">Experience Certificate</div>
+                    <div class="cert-issuer">Tatweer Development Company • 2022-2023</div>
+                </div>
+            </div>
+
+            <!-- Accounting Certificate -->
+            <div class="cert-card" onclick="openModal(this)">
+                <img src="images/accounting-certificate.jpg" alt="Accounting Course" class="cert-image">
+                <div class="cert-overlay">
+                    <div class="cert-info">
+                        <h3>Accounting Course</h3>
+                        <p>For Non-Accountants - Click to view</p>
+                    </div>
+                </div>
+                <div class="cert-details">
+                    <div class="cert-title">Accounting for Non-Accountants</div>
+                    <div class="cert-issuer">Edraak Platform • 2025</div>
+                </div>
+            </div>
+
+            <!-- Excel Mastery Certificate -->
+            <div class="cert-card" onclick="openModal(this)">
+                <img src="images/excel-certificate.jpg" alt="Excel Mastery" class="cert-image">
+                <div class="cert-overlay">
+                    <div class="cert-info">
+                        <h3>Excel Mastery</h3>
+                        <p>Advanced Level - Click to view</p>
+                    </div>
+                </div>
+                <div class="cert-details">
+                    <div class="cert-title">Mastering Excel</div>
+                    <div class="cert-issuer">Edraak Platform • 2025</div>
+                </div>
+            </div>
+
+            <!-- Additional Certifications (Without Images) -->
+            <div class="cert-card" style="background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);">
+                <div style="height: 300px; display: flex; align-items: center; justify-content: center; color: var(--accent); font-size: 3rem;">
+                    <i class="fas fa-certificate"></i>
+                </div>
+                <div class="cert-details">
+                    <div class="cert-title">ICDL Certification</div>
+                    <div class="cert-issuer">International Computer Driving License</div>
+                </div>
+            </div>
+
+            <div class="cert-card" style="background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);">
+                <div style="height: 300px; display: flex; align-items: center; justify-content: center; color: var(--accent); font-size: 3rem;">
+                    <i class="fas fa-tasks"></i>
+                </div>
+                <div class="cert-details">
+                    <div class="cert-title">Project Management</div>
+                    <div class="cert-issuer">Advanced Training • Preparing for PMP 2025</div>
+                </div>
+            </div>
+
+            <div class="cert-card" style="background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);">
+                <div style="height: 300px; display: flex; align-items: center; justify-content: center; color: var(--accent); font-size: 3rem;">
+                    <i class="fas fa-calculator"></i>
+                </div>
+                <div class="cert-details">
+                    <div class="cert-title">Cost Estimation</div>
+                    <div class="cert-issuer">Eng. Mohamed Soror • Riyadh</div>
+                </div>
+            </div>
+
+            <div class="cert-card" style="background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);">
+                <div style="height: 300px; display: flex; align-items: center; justify-content: center; color: var(--accent); font-size: 3rem;">
+                    <i class="fas fa-building"></i>
+                </div>
+                <div class="cert-details">
+                    <div class="cert-title">BIM Management</div>
+                    <div class="cert-issuer">Online Certification • In Progress</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal for Certificate Images -->
+    <div id="certModal" class="modal" onclick="closeModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <img id="modalImage" class="modal-image" src="" alt="Certificate">
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="cta-section">
+        <h2>Let's Build Something Great</h2>
+        <p>Available for consulting and full-time opportunities in Saudi Arabia</p>
+        <div class="cta-buttons">
+            <a href="#" class="btn-primary" onclick="alert('Download CV functionality'); return false;">
+                <i class="fas fa-download"></i> Download CV
+            </a>
+            <a href="mailto:ehabsayedahmed2@gmail.com" class="btn-secondary">
+                <i class="fas fa-envelope"></i> Get In Touch
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-social">
+            <a href="https://www.linkedin.com/in/eng-ehab-el-mahalawy-903192262/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.facebook.com/Ehab01224452612/" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="mailto:ehabsayedahmed2@gmail.com"><i class="fas fa-envelope"></i></a>
+            <a href="tel:+966537489173"><i class="fas fa-phone"></i></a>
+        </div>
+        <p>&copy; 2024 Ehab Sayed Ahmed El Mahalawy. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Navbar visibility on scroll
+        let lastScroll = 0;
+        const navbar = document.getElementById('navbar');
+        
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                navbar.classList.add('visible');
+            } else {
+                navbar.classList.remove('visible');
+            }
+            
+            lastScroll = currentScroll;
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Active nav link
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Certificate Modal Functions
+        function openModal(card) {
+            const img = card.querySelector('.cert-image');
+            if (img) {
+                const modal = document.getElementById('certModal');
+                const modalImg = document.getElementById('modalImage');
+                modal.classList.add('active');
+                modalImg.src = img.src;
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('certModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
